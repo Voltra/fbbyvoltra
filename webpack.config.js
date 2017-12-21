@@ -27,6 +27,7 @@ config.target = "web";
 config.resolve = {};
 config.resolve.alias = {
 	"@js": path.resolve(thisPath, "dev/js/"),
+	"@components": path.resolve(thisPath, "dev/js/components/"),
 	"@css": path.resolve(thisPath, "dev/css/"),
 	"@img": path.resolve(thisPath, "dev/resources/img/"),
 	"$es-vue": "vue/dist/vue.esm.js",

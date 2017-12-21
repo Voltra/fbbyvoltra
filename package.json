@@ -13,7 +13,13 @@
     "setToProd": "cross-env NODE_ENV=production",
     "dev-build": "npm run setToDev && npm run build",
     "dev-watch": "npm run setToDev && npm run watch",
-    "prod-build": "npm run setToProd && npm run build"
+    "prod-build": "npm run setToProd && npm run build",
+    "moveJqFlashToProduction": "npm run moveJqFlashJs && npm run moveJqFlashCss",
+    "moveJqFlashJs": "cp node_modules/jq-flash/dist/flash.js public_html/assets/js/globals/jq-flash.js",
+    "moveJqFlashCss": "cp node_modules/jq-flash/dist/flash.css public_html/assets/css/globals/",
+    "moveJqueryToProduction": "cp node_modules/jquery/dist/jquery.min.js public_html/assets/js/globals/jquery.js",
+    "postBuild": "npm run moveJqueryToProduction && npm run moveJqFlashToProduction",
+    "postinstall": "npm run postBuild"
   },
   "author": "",
   "license": "ISC",
@@ -35,6 +41,8 @@
     "webpack-manifest-plugin": "^1.3.2"
   },
   "dependencies": {
+    "jq-flash": "^1.0.2",
+    "jquery": "^3.2.1",
     "vue": "^2.5.9"
   }
 }

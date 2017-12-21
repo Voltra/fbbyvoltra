@@ -1,0 +1,14 @@
+/**@@ <TEMPLATE> @@**/
+@font-face{
+	font-family: /*name*/;
+	src: url("");
+}
+/**@@ </TEMPLATE> @@**/
+
+/*///////////////////////////////////////////////////////////////*/
+
+/**RALEWAY**/
+@font-face{
+	font-family: raleway;
+	src: url("/src/fonts/ttf/raleway.ttf");
+}
