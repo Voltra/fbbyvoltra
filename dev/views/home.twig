@@ -3,6 +3,16 @@
 {% block title %}FB by Voltra{% endblock %}
 {% block tags %}facebook,client,unofficial,voltra,OAuth{% endblock %}
 
+{% block js %}
+    {% if debug %}
+        <script src="/assets/js/{{ attribute(manifest, "home.js") }}"></script>
+    {% else %}
+        <script src="/assets/js/home.bundle.js"></script>
+    {% endif %}
+{% endblock %}
+
 {% block body %}
-    Hello !
+    <app>
+        <home></home>
+    </app>
 {% endblock %}

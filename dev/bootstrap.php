@@ -1,11 +1,11 @@
 <?php
 
 use App\Helpers\TwigExtensions\CsrfExtension;
-use Knlv\Slim\Views\TwigMessages;
 use Noodlehaus\Config;
 use Slim\App as SlimApp;
 use Slim\Container;
 use Slim\Views\Twig;
+use App\Helpers\TwigExtensions\FlashExtension;
 use Slim\Views\TwigExtension;
 
 session_start();
@@ -47,11 +47,12 @@ $container["view"] = function (Container $container) {
 
     $env = $view->getEnvironment();
     $env->addGlobal("debug", $debug);
+    $env->addGlobal("manifest", json_decode(file_get_contents(PUBLIC_ROOT."/assets/js/manifest.json")));
 
     $basePath = rtrim(str_ireplace("index.php", "", $container["request"]->getUri()->getBasePath()), "/");
     $view->addExtension(new TwigExtension($container["router"], $basePath));
     $view->addExtension(new CsrfExtension($view));
-    $view->addExtension(new TwigMessages(
+    $view->addExtension(new FlashExtension(
         $container->flash
     ));
 

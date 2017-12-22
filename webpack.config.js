@@ -43,7 +43,9 @@ config.resolve.extensions = [
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 //// ENTRIES
 ////////////////////////////////////////////////////////////////////////////////////////////////////
-config.entry = {};
+config.entry = {
+	"home": "@js/home.js"
+};
 
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -96,6 +98,15 @@ config.module.rules.push({
 	test: /\.(woff2?|eot|ttf|otf)$/,
 	loader: "file-loader"
 });
+config.module.rules.push({
+	test: /\.vue/,
+	loader: "vue-loader",
+    options: {
+		loaders: {
+			css: "vue-style-loader!style-loader!css-loader"
+		}
+	}
+});
 
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -108,9 +119,10 @@ if(!dev){
 	}));
 	config.plugins.push(new ManifestPlugin());
 	config.plugins.push(new CleanWebpackPlugin(["assets/js"], {
-		root: path.resolve(thisPath, "./"),
+		root: path.resolve(thisPath, "./public_html"),
 		verbose: true,
-		dry: false
+		dry: false,
+        exclude: ["globals", "globals/*", "globals/*.*"]
 	}));
 }
 

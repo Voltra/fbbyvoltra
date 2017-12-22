@@ -1,37 +1,39 @@
 <template>
-    <div id="action_bar">
-        <action v-for="action in actions" :action-name="action.actionName" :img-url="action.imgUrl"></action>
+    <div id="actionBar">
+        <action v-for="(action, index) in actions" :key="index" :action-props="action"></action>
     </div>
 </template>
 
 <script>
-    import Action from "@components/shared/Action"
-    import ActionProps from "@js/ActionProps"
+    import Action from "@components/entities/Action"
+    import ActionProps from "@js/props/ActionProps"
 
     export default {
+        name: "action-bar",
         props: {
             actions : {
-                validator(value){
-                    if(!isArray(value))
-                        return false;
-
-                    return value.reduce(function(acc, elem){
-                        return acc && (elem instanceof ActionProps);
-                    }, true);
-                }
+                type: Array,
+                required: true
             }
         },
-        name: "action-bar",
         components: { Action }
     }
 </script>
 
 <style scoped>
-#action_bar{
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
+    #actionBar{
+        position: relative;
+        width: 100%;
+        height: 6vh;
 
-}
+        display: flex;
+        flex-direction: row;
+        
+        z-index: 3;
+    }
+    
+    #actionBar{
+        background-color: #3b5998;
+        box-shadow: 0 -0.2vh 0.4vh 0.2vh rgba(0,0,0, 0.15);
+    }
 </style>
