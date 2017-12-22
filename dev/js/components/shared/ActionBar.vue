@@ -30,6 +30,7 @@
         flex-direction: row;
         
         z-index: 3;
+        cursor: pointer;
     }
     
     #actionBar{

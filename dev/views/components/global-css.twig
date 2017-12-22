@@ -1,4 +1,11 @@
 <link rel="stylesheet" href="/assets/css/globals/reset.css"/>
 <link rel="stylesheet" href="/assets/css/globals/font_loader.css"/>
 <link rel="stylesheet" href="/assets/css/globals/clear_float.css"/>
+
 <link rel="stylesheet" href="/assets/css/globals/common.css"/>
+
+{% if debug %}
+    <link rel="stylesheet" href="/assets/css/globals/debug.css"/>
+{% else %}
+    <link rel="stylesheet" href="/assets/css/globals/definitive_colors.css"/>
+{% endif %}

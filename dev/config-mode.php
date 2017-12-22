@@ -1,4 +1,4 @@
 <?php
-$dev = true;
+$dev = false;
 
 return ($dev ? "development" : "production");
