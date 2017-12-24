@@ -1,12 +1,3 @@
-<template>
-    <div class="app-container">
-        <app-container :friends="friends">
-            <slot></slot>
-        </app-container>
-        <action-bar :actions="actions"></action-bar>
-    </div>
-</template>
-
 <script>
     import AppContainer from "@components/shared/AppContainer"
     import ActionBar from "@components/shared/ActionBar"
@@ -14,11 +5,12 @@
     import ActionProps from "@js/props/ActionProps"
     import FriendProps from "@js/props/FriendProps"
     
+    import responsive from "@js/helpers/responsive"
+    
     
     
     export default {
         name: "app",
-        components: { ActionBar, AppContainer },
         data(){
             return {
                 actions: [
@@ -33,8 +25,29 @@
                     new FriendProps("Random Pelo", "/assets/img/png/av.png", "disconnected"),
                     new FriendProps("Jean Denis", "/assets/img/png/av.png", "idle"),
                     new FriendProps("Voltra Tonlaveur", "/assets/img/png/av.png", "connected")
-                ]
+                ],
+                responsive
             };
+        },
+        render(h){
+            return (
+                <div class="app-container">
+                    <transition appear name="slideDown">
+                        <AppContainer friends={this.friends} responsive={this.responsive}>
+                            {this.$slots.default}
+                        </AppContainer>
+                    </transition>
+                    <transition appear name="slideUp">
+                        <ActionBar actions={this.actions}/>
+                    </transition>
+                </div>
+            );
         }
     };
 </script>
+
+<style scoped>
+    .app-container{
+        background-color: #e9ebee;
+    }
+</style>

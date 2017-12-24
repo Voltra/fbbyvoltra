@@ -36,16 +36,16 @@ config.resolve.alias = {
 config.resolve.extensions = [
 	".js",
 	".es6",
-	".vue"
+	".vue",
+    ".css"
 ];
 
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 //// ENTRIES
 ////////////////////////////////////////////////////////////////////////////////////////////////////
-config.entry = {
-	"home": "@js/home.js"
-};
+config.entry = {};
+config.entry["home"] = "@js/home.js";
 
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -98,12 +98,17 @@ config.module.rules.push({
 	test: /\.(woff2?|eot|ttf|otf)$/,
 	loader: "file-loader"
 });
+const styleLoaders = ["style-loader", "css-loader"];
 config.module.rules.push({
-	test: /\.vue/,
+    test: /\.css$/,
+    use: styleLoaders
+});
+config.module.rules.push({
+	test: /\.vue$/,
 	loader: "vue-loader",
     options: {
 		loaders: {
-			css: "vue-style-loader!style-loader!css-loader"
+			css: `vue-style-loader${styleLoaders.map(e=>`!${e}`).join("")}`
 		}
 	}
 });

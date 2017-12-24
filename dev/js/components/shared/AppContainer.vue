@@ -1,10 +1,3 @@
-<template>
-    <div id="container">
-        <slot></slot>
-        <friend-list :friends="friends"></friend-list>
-    </div>
-</template>
-
 <script>
     import FriendList from "@components/shared/FriendList"
     
@@ -15,9 +8,21 @@
                 type: Array,
                 required: true,
                 default: []
+            },
+            responsive: {
+                required: true
             }
         },
-        components: { FriendList }
+        render(h){
+            return (
+                <div id="container">
+                    {this.$slots.default}
+                    <transition appear name="fadeRight">
+                        <FriendList friends={this.friends} responsive={this.responsive}/>
+                    </transition>
+                </div>
+            );
+        }
     };
 </script>
 

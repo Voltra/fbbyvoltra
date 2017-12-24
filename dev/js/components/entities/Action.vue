@@ -1,9 +1,3 @@
-<template>
-    <div :class="classes">
-        <img :src="url" :alt="actionName"/>
-    </div>
-</template>
-
 <script>
     import ActionProps from "@js/props/ActionProps";
 
@@ -15,7 +9,6 @@
             }
         },
         name: "action",
-        data(){ return {}; },
         computed: {
             classes(){
                 return{
@@ -26,6 +19,13 @@
             actionName(){ return this.actionProps.actionName },
             url(){ return this.actionProps.imgUrl },
             isCenter(){ return this.actionProps.isCenter },
+        },
+        render(h){
+            return (
+                <div class={this.classes}>
+                    <img src={this.url} alt={this.actionName}/>
+                </div>
+           );
         }
     }
 </script>
@@ -48,6 +48,10 @@
     }
     
     /*////////////////////////////////////////////////////////////////////////////////*/
+    
+    .actionBar__action{
+        background-color: #3b5998;
+    }
     
     .actionBar__centerAction{
         border-radius: 100vh;

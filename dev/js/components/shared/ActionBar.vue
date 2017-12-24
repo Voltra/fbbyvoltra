@@ -1,12 +1,5 @@
-<template>
-    <div id="actionBar">
-        <action v-for="(action, index) in actions" :key="index" :action-props="action"></action>
-    </div>
-</template>
-
 <script>
     import Action from "@components/entities/Action"
-    import ActionProps from "@js/props/ActionProps"
 
     export default {
         name: "action-bar",
@@ -16,7 +9,17 @@
                 required: true
             }
         },
-        components: { Action }
+        render(h){
+            return (
+                <div id="actionBar">
+                    {
+                        this.actions.map((action, index)=>(
+                            <Action key={index} action-props={action}/>
+                        ))
+                    }
+                </div>
+            );
+        }
     }
 </script>
 

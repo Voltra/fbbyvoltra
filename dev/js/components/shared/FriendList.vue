@@ -1,23 +1,42 @@
-<template>
-    <div id="friendList">
-        <transition-group v-if="friends.length" tag="ul" name="fade">
-            <friend v-for="(friend, index) in friends" :key="index" :friend="friend"></friend>
-        </transition-group>
-        <p v-else class="no-friend">Sadly, there is no friend to display here</p>
-    </div>
-</template>
-
 <script>
     import Friend from "@components/entities/Friend"
-    import FriendProps from "@js/props/FriendProps"
     
     export default {
         name: "friend-list",
-        components: { Friend },
         props: {
-            friends: Array,
-            required: true,
-            default: ()=>[]
+            friends: {
+                type: Array,
+                required: true,
+                default: ()=>[]
+            },
+            responsive: {
+                required: true
+            }
+        },
+        data(){
+            return {
+                noFriendMessage: "Sadly, there is no friend to display here"
+            };
+        },
+        render(h){
+            if(!this.friends.length)
+                return (
+                    <div id="friendList">
+                        <p class="no-friend">{this.noFriendMessage}</p>
+                    </div>
+                );
+            else
+                return (
+                    <div id="friendList">
+                        <transition-group appear tag="ul" name="zoomRight">
+                            {
+                                this.friends.map((friend, index)=>(
+                                    <Friend key={index} friend={friend} responsive={this.responsive}/>
+                                ))
+                            }
+                        </transition-group>
+                    </div>
+                );
         }
     };
 </script>
