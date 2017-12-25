@@ -59,109 +59,114 @@
     };
 </script>
 
-<style scoped>    
+<style scoped lang="scss">
+    @import "../../../css/variables";
+    @import "~compass-mixins/lib/compass";
+    
     li.friend{
-        display: flex;
-        flex-direction: row;
+        @include display-flex;
+        @include flex-direction(row);
         
-        min-height: 16%;
+        max-height: $friendListItemHeight;
         position: relative;
         
         overflow: hidden;
-        padding: 5%;
+        padding: $friendListPadding;
         
         cursor: pointer;
-    }
-    
-    li.friend img{
-        max-height: 90%;
-        max-width: 20%;
-        object-fit: cover;
-        object-position: center;
-        flex: 1;
         
-        margin: auto;
-    }
-    
-    .name-container{        
-        flex: 4;
-        margin-left: 5%;
         
-        display: flex;
-        flex-direction: column;
-        align-content: center;
-        justify-content: center;
-    }
-    
-    li.friend p{
-        font-size: 100%;
-        text-overflow: ellipsis;
+        & img{
+            max-height: $friendListItemImageDimension;
+            max-width: $friendListItemImageDimension;
+            object-fit: cover;
+            object-position: center;
+            @include flex(1);
+            margin: auto;
+        }
+        
+        & .name-container{
+            flex: 4;
+            margin-left: $friendListPadding;
+
+            @include display-flex;
+            @include flex-direction(column);
+            @include align-content(center);
+            @include justify-content(center);
+        }
+        
+        & p{
+            font-size: 100%;
+            text-overflow: ellipsis;
+        }
     }
     
     /*////////////////////////////////////////////////////////////////////////////////*/
     li.friend{
         border-left: 1px solid transparent;
+        
+        & img{
+            @include border-radius($appHeight);
+            border: 1px solid transparent;
+            @include box-shadow(0 0 0.4vh 0.2vh rgba(#000, 0.15));
+        }
     }
     
-    li.friend img{
-        border-radius: 100vh;
-        border: 1px solid transparent;
-        box-shadow: 0 0 0.4vh 0.2vh rgba(0,0,0, 0.15);
+    @mixin color-bg($color, $opacity:0.69){
+        border-color: $color;
+        color: rgba($color, $opacity);
     }
     
     li.friend.connected,
     li.friend.connected img{
-        border-color: #11b449;
-        color: #11b449;
+        @include color-bg(#11b449);
     }
     
     li.friend.idle,
     li.friend.idle img{
-        border-color: #f6bc1e;
-        color: #f6bc1e;
+        @include color-bg(#f6bc1e);
     }
     
     li.friend.disconnected,
     li.friend.disconnected img{
-        border-color: slategrey;
-        color: slategrey;
+        @include color-bg(slategrey);
     }
     
     li.friend{
-        box-shadow: 0 0.2vh 0.4vh 0 rgba(0,0,0, 0.15);
+        @include box-shadow(0 0.2vh 0.4vh 0 rgba(#000, 0.15));
     }
     
     /*////////////////////////////////////////////////////////////////////////////////*/
     
     li.friend{
-        transition-property: height, padding, box-shadow, border-width;
-    }
-    
-    li.friend .name-container{
-        transition-property: margin-left, height; 
-    }
-    
-    li.friend img{
-        transition-property: height, box-shadow;
+        @include transition-property(height, padding, box-shadow, border-width);
+        
+        & .name-container{
+            @include transition-property(margin-left, height);
+        }
+        
+        & img{
+            @include transition-property(height, box-shadow);
+        }
     }
     
     li.friend,
     li.friend .name-container{
-        transition-duration: 0.3s;
-        transition-timing-function: ease-in-out;
+        @include transition-duration($transitionDuration);
+        @include transition-timing-function(ease-in-out);
     }
     
     li.friend:hover{
-        padding: 8%;
-        box-shadow: 0 0.2vh 0.4vh 0 rgba(0,0,0, 0.35);
+        padding: $friendListHoverPadding;
+        @include box-shadow(0 0.2vh 0.4vh 0 rgba(#000, 0.35));
         border-width: 3px;
-    }
-    
-    li.friend:hover .name-container{
-        margin-left: 8%;
-    }
-    
-    li.friend:hover img{
-        box-shadow: 0 0 0.4vh 0.2vh rgba(0,0,0, 0.35);
+        
+        & .name-container{
+            margin-left: $friendListHoverPadding;
+        }
+        
+        & img{
+            @include box-shadow(0 0 0.4vh 0.2vh /*rgba(#000, 0.35)*/);
+        }
     }
 </style>

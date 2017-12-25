@@ -23,21 +23,25 @@
     }
 </script>
 
-<style scoped>
+<style scoped lang="scss">
+    @import "../../../css/variables";
+    @import "~compass-mixins/lib/compass";
+    
     #actionBar{
         position: relative;
-        width: 100%;
-        height: 6vh;
+        width: $actionBarWidth;
+        height: $actionBarHeight;
+        bottom: $actionBarHeight;
 
-        display: flex;
-        flex-direction: row;
+        @include display-flex;
+        @include flex-direction(row);
         
         z-index: 3;
         cursor: pointer;
     }
     
     #actionBar{
-        background-color: #3b5998;
-        box-shadow: 0 -0.2vh 0.4vh 0.2vh rgba(0,0,0, 0.15);
+        background-color: $primary;
+        @include box-shadow(0 -0.2vh 0.4vh 0.2vh rgba(#000, 0.15));
     }
 </style>

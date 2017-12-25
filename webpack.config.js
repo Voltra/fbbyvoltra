@@ -37,7 +37,8 @@ config.resolve.extensions = [
 	".js",
 	".es6",
 	".vue",
-    ".css"
+    ".css",
+    ".scss"
 ];
 
 
@@ -103,12 +104,22 @@ config.module.rules.push({
     test: /\.css$/,
     use: styleLoaders
 });
+const sassLoaders = [...styleLoaders, "sass-loader", "mixin-loader"];
+config.module.rules.push({
+    test: /\.scss$/,
+    use: sassLoaders
+});
+config.module.rules.push({
+    test: /\.scss$/,
+    enforce: "pre",
+    loader: "mixin-loader"
+});
 config.module.rules.push({
 	test: /\.vue$/,
 	loader: "vue-loader",
     options: {
 		loaders: {
-			css: `vue-style-loader${styleLoaders.map(e=>`!${e}`).join("")}`
+			css: `vue-style-loader${sassLoaders.map(e=>`!${e}`).join("")}`
 		}
 	}
 });

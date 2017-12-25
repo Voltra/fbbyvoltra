@@ -41,11 +41,13 @@
     };
 </script>
 
-<style scoped>
+<style scoped lang="scss">
+    @import "../../../css/variables";
+    @import "~compass-mixins/lib/compass";
+    
     #friendList{
-        width: 20%;
-        min-height: 100%;
-        height: auto;
+        width: $friendListWidth;
+        height: $friendListHeight;
         
         overflow: hidden;
         float: left;
@@ -55,7 +57,7 @@
     #friendList ul{
         display: block;
         width: 100%;
-        min-height: 100%;
+        @include min-height(100%);
         height: auto;
         
         overflow: hidden;
@@ -63,19 +65,19 @@
     }
     
     #friendList{
-        background-color: #e9ebee;
-        box-shadow: -0.2vh 0 0.2vh 0.1vh rgba(0,0,0, 0.15);
+        background-color: $bg;
+        @include box-shadow(-0.2vh 0 0.2vh 0.1vh rgba(#000, 0.15));
     }
     
     #friendList ul{
-        list-style: none;
+        @include list-style(none);
     }
     
     .no-friend{
         font-size: 1em;
         word-break: break-all;
-        padding: 5%;
+        padding: $friendListPadding;
         
-        color: #3c3f41;
+        color: $text;
     }
 </style>

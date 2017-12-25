@@ -8,11 +8,14 @@
     };
 </script>
 
-<style scoped>
+<style scoped lang="scss">
+    @import "../../css/variables";
+    @import "~compass-mixins/lib/compass";
+    
     #home{
         display: block;
-        width: 80%;
-        height: 100%;
+        width: $contentWidth;
+        height: $contentHeight;
         
         overflow: hidden;
         overflow-y: auto;
@@ -20,6 +23,6 @@
     }
     
     #home{
-        background-color: #e9ebee;
+        background-color: $bg;
     }
 </style>

@@ -26,10 +26,13 @@
     };
 </script>
 
-<style scoped>
+<style scoped lang="scss">
+    @import "../../../css/variables";
+    @import "~compass-mixins/lib/compass";
+    
     #container{
-        width: 100vw;
-        height: 94vh;
+        width: $appContainerWidth;
+        height: $appContainerHeight;
         position: relative;
         display: block;
     }

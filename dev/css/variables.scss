@@ -1,0 +1,31 @@
+$appHeight: 100vh;
+$appWidth: 100vw;
+
+$primary: #3b5998;
+$bg: #e9ebee;
+$text: #3c3f41;
+$transitionDuration: 0.3s;
+
+$actionBarHeight: 6 / 100 * $appHeight;
+$actionBarWidth: $appWidth;
+
+$appContainerWidth: $appWidth;
+$appContainerHeight: $appHeight - $actionBarHeight;
+
+$friendListWidth: 20 / 100 * $appWidth;
+$friendListHeight: $appContainerHeight;
+
+$contentWidth: $appWidth - $friendListWidth;
+$contentHeight: $appHeight;
+
+$friendListPaddingH: $friendListWidth * 5 / 100;
+$friendListPaddingV: $friendListHeight * 5 / 100;
+$friendListPadding: 5%;
+$friendListHoverPaddingH: $friendListWidth * 8 / 100;
+$friendListHoverPaddingV: $friendListHeight * 8 / 100;
+$friendListHoverPadding: 8%;
+
+$friendListItemHeight: 16 / 100 * $friendListHeight;
+$friendListItemWidth: $friendListWidth;
+
+$friendListItemImageDimension: 90 / 100 * $friendListItemHeight;

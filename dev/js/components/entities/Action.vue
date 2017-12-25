@@ -30,65 +30,66 @@
     }
 </script>
 
-<style scoped>
+<style scoped lang="scss">
+    @import "../../../css/variables";
+    @import "~compass-mixins/lib/compass";
+    
     .actionBar__action{
         position: relative;
-        flex: auto;
+        @include flex(auto);
         display: inline-block;
-    }
-    
-    .actionBar__action img{
-        display: block;
-        width: auto;
-        height: 100%;
         
-        margin: 0 auto;
-        transform: scale(0.5);
-        -webkit-transform: scale(0.5);
+        & img{
+            display: block;
+            width: auto;
+            height: 100%;
+
+            margin: 0 auto;
+            @include scale(0.5);
+        }
     }
     
     /*////////////////////////////////////////////////////////////////////////////////*/
     
     .actionBar__action{
-        background-color: #3b5998;
+        background-color: $primary;
+        
+        & img{
+            @include filter( drop-shadow(0 0.2vh 0.4vh rgba(#000, 0.25)) );
+        }
     }
     
     .actionBar__centerAction{
-        border-radius: 100vh;
+        @include border-radius(100vh);
         background-color: white;
-        box-shadow: 0 0 0.2vh 0.1vh rgba(0,0,0, 0.15);
-    }
-    
-    .actionBar__action img{
-        filter: drop-shadow(0 0.2vh 0.4vh rgba(0,0,0, 0.25));
+        @include box-shadow(0 0 0.2vh 0.1vh rgba(#000, 0.15));
     }
     
     /*////////////////////////////////////////////////////////////////////////////////*/
     
     .actionBar__action,
     .actionBar__action img{
-        transition-duration: 0.3s;
-        transition-timing-function: ease-in-out;
+        @include transition-duration($transitionDuration);
+        @include transition-timing-function(ease-in-out);
     }
     
     .actionBar__action img{
-        transition-property: filter, transform;
+        @include transition-property(filter, transform);
     }
     .actionBar__centerAction{
-        transition-property: box-shadow;
+        @include transition-property(box-shadow);
     }
     
     .actionBar__action:hover img{
-        filter: drop-shadow(0 0.2vh 0.5vh rgba(0,0,0, 0.35));
-        transform: scale(0.52);
-        -webkit-transform: scale(0.52);
+        @include filter( drop-shadow(0 0.2vh 0.5vh rgba(#000, 0.35)) );
+        @include scale(0.52);
     }
     
     .actionBar__centerAction:hover{
-        box-shadow: 0 0 0.2vh 0.1vh rgba(0,0,0, 0.35);
-    }
-    
-    .actionBar__centerAction:hover img{
-        filter: drop-shadow(0 0 0.2vh rgba(0,0,0, 0.15));
+        @include box-shadow(0 0 0.2vh 0.1vh rgba(#000, 0.35));
+        
+        & img{
+            @include filter( drop-shadow(0 0 0.2vh rgba(#000, 0.15)) );
+        }
     }
 </style>

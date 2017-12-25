@@ -46,8 +46,11 @@
     };
 </script>
 
-<style scoped>
+<style scoped lang="scss">
+    @import "../../css/variables";
+    @import "~compass-mixins/lib/compass";
+    
     .app-container{
-        background-color: #e9ebee;
+        background-color: $bg;
     }
 </style>
