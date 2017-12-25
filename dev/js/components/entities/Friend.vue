@@ -49,7 +49,9 @@
         render(h){
             return (
                 <li class={this.classes} title={this.name}>
-                    <img src={this.ppUrl} alt={this.alt}/>
+                    <div class="img-container">
+                        <img src={this.ppUrl} alt={this.alt}/>
+                    </div>
                     <div class="name-container" v-show={this.shouldDisplayName}>
                         <p>{ this.name }</p>
                     </div>
@@ -60,7 +62,7 @@
 </script>
 
 <style scoped lang="scss">
-    @import "../../../css/variables";
+    @import "~@css/variables";
     @import "~compass-mixins/lib/compass";
     
     li.friend{
@@ -76,9 +78,10 @@
         cursor: pointer;
         
         
-        & img{
-            max-height: $friendListItemImageDimension;
-            max-width: $friendListItemImageDimension;
+        & img,
+        & .img-container{
+            height: $friendListItemImageDimension;
+            width: $friendListItemImageDimension;
             object-fit: cover;
             object-position: center;
             @include flex(1);
@@ -146,7 +149,7 @@
         }
         
         & img{
-            @include transition-property(height, box-shadow);
+            @include transition-property(height, box-shadow, border);
         }
     }
     

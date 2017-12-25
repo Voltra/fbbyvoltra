@@ -24,7 +24,7 @@
 </script>
 
 <style scoped lang="scss">
-    @import "../../../css/variables";
+    @import "~@css/variables";
     @import "~compass-mixins/lib/compass";
     
     #actionBar{

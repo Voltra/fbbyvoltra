@@ -42,7 +42,7 @@
 </script>
 
 <style scoped lang="scss">
-    @import "../../../css/variables";
+    @import "~@css/variables";
     @import "~compass-mixins/lib/compass";
     
     #friendList{
@@ -57,8 +57,8 @@
     #friendList ul{
         display: block;
         width: 100%;
-        @include min-height(100%);
-        height: auto;
+        //@include min-height(100%);
+        height: 100%;
         
         overflow: hidden;
         overflow-y: auto;

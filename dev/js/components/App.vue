@@ -24,7 +24,11 @@
                     new FriendProps("PINGAS", "/assets/img/png/av.png", "connected"),
                     new FriendProps("Random Pelo", "/assets/img/png/av.png", "disconnected"),
                     new FriendProps("Jean Denis", "/assets/img/png/av.png", "idle"),
-                    new FriendProps("Voltra Tonlaveur", "/assets/img/png/av.png", "connected")
+                    new FriendProps("Voltra Tonlaveur", "/assets/img/png/av.png", "connected"),
+                    new FriendProps("Peter Parker", "/assets/img/png/anti-venom.png", "idle"),
+                    new FriendProps("Bruce Wayne", "/assets/img/png/av.png", "idle"),
+                    new FriendProps("Ben Reilly", "/assets/img/png/av.png", "idle"),
+                    new FriendProps("Cindy Moon", "/assets/img/png/av.png", "idle"),
                 ],
                 responsive
             };
@@ -47,8 +51,8 @@
 </script>
 
 <style scoped lang="scss">
-    @import "../../css/variables";
-    @import "~compass-mixins/lib/compass";
+    @import "~@css/variables";
+    //@import "~compass-mixins/lib/compass";
     
     .app-container{
         background-color: $bg;
