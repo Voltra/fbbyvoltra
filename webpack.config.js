@@ -68,17 +68,20 @@ config.devtool = dev ? "cheap-module-eval-source-map" : false;
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 //// MODULES/LOADERS
 ////////////////////////////////////////////////////////////////////////////////////////////////////
+const librariesRegex = /(node_modules|bower_components)/g;
+
 config.module = {};
 config.module.rules = [];
 config.module.rules.push({
 	test: /\.(js|es6)$/,
-	exclude: /(node_modules|bower_components)/g,
+	exclude: librariesRegex,
 	use: [
 		"babel-loader"
 	]
 });
 config.module.rules.push({
 	test: /\.(png|jpe?g|gif|svg)$/,
+    exclude: librariesRegex,
 	use: [
 		{
 			loader: "url-loader",

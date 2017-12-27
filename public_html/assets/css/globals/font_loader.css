@@ -1,14 +1,13 @@
 /**@@ <TEMPLATE> @@**/
-@font-face{
-	font-family: /*name*/;
+/*@font-face{
+	font-family: ;
 	src: url("");
-}
+}*/
 /**@@ </TEMPLATE> @@**/
 
 /*///////////////////////////////////////////////////////////////*/
 
-/**RALEWAY**/
-@font-face{
-	font-family: raleway;
-	src: url("/src/fonts/ttf/raleway.ttf");
+@font-face{/* r -> Roboto*/
+	font-family: "r";
+	src: url("/assets/fonts/ttf/Roboto-Light.ttf");
 }

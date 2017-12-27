@@ -5,3 +5,7 @@ body, #app-container{
     position: relative;
     overflow: hidden;
 }
+
+*{
+    font-family: r;
+}

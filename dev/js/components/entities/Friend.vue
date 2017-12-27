@@ -1,6 +1,8 @@
 <script>
     import FriendProps from "@js/props/FriendProps"
     import ResponsiveProps from "@js/props/ResponsiveProps"
+
+    import "@css/tooltip.scss"
     
     export default {
         name: "friend",
@@ -32,7 +34,14 @@
             name(){ return this.friend.name; },
             ppUrl(){ return this.friend.ppUrl; },
             alt(){ return `Profile picture of ${this.friend.name}` },
-            status(){ return this.friend.status; }
+            status(){ return this.friend.status; },
+
+            tooltipData(){
+                return {
+                    content: this.name,
+                    placement: "left"
+                };
+            }
         },
         methods: {
             handleResize(){
@@ -48,7 +57,7 @@
         },
         render(h){
             return (
-                <li class={this.classes} title={this.name}>
+                <li class={this.classes} title={this.name} v-tooltip={this.tooltipData}>
                     <div class="img-container">
                         <img src={this.ppUrl} alt={this.alt}/>
                     </div>
