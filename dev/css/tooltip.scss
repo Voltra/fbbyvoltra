@@ -82,12 +82,19 @@
 
 $tooltip: 2vh;
 $t-color: #e9ebee;
-$t-bg: #3c3f41;
+$t-bg: #3b5998;//#3c3f41;
 
 .tooltip{
   display: block !important;
   z-index: 9999;
-  @include transition(opacity 0.3s);
+
+  &, & *:not(p){
+    @include filter( drop-shadow(0 0 0.4vh rgba(#000, 0.15)) );
+
+    @include transition-property(opacity, visibility);
+    @include transition-duration(0.3s);
+    @include transition-timing-function(ease-in-out);
+  }
 
   & .tooltip-arrow{
     width: 0;
@@ -96,6 +103,7 @@ $t-bg: #3c3f41;
     border: $tooltip solid transparent;
     @include scale(0.8, 0.5);
     margin: 0;
+    z-index: 1;
   }
 
   & .tooltip-inner{
