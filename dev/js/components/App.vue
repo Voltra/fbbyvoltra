@@ -2,33 +2,31 @@
     import AppContainer from "@components/shared/AppContainer"
     import ActionBar from "@components/shared/ActionBar"
     
-    import ActionProps from "@js/props/ActionProps"
-    import FriendProps from "@js/props/FriendProps"
+    import {makeActionProps} from "@js/props/ActionProps"
+    import {makeFriendProps} from "@js/props/FriendProps"
     
     import responsive from "@js/helpers/responsive"
-    
-    
     
     export default {
         name: "app",
         data(){
             return {
                 actions: [
-                    new ActionProps("a", "/assets/img/png/actionbar/off-friend.png", false),
-                    new ActionProps("b", "/assets/img/png/actionbar/off-search.png", false),
-                    new ActionProps("c", "/assets/img/png/actionbar/post.png", true),
-                    new ActionProps("d", "/assets/img/png/actionbar/off-notif.png", false),
-                    new ActionProps("d", "/assets/img/png/actionbar/off-menu.png", false),
+                    makeActionProps("friend requests", "/assets/img/png/actionbar/off-friend.png", false),
+                    makeActionProps("search", "/assets/img/png/actionbar/off-search.png", false),
+                    makeActionProps("post", "/assets/img/png/actionbar/post.png", true),
+                    makeActionProps("notifications", "/assets/img/png/actionbar/off-notif.png", false),
+                    makeActionProps("menu", "/assets/img/png/actionbar/off-menu.png", false),
                 ],
                 friends: [
-                    new FriendProps("PINGAS", "/assets/img/png/av.png", "connected"),
-                    new FriendProps("Random Pelo", "/assets/img/png/av.png", "disconnected"),
-                    new FriendProps("Jean Denis", "/assets/img/png/av.png", "idle"),
-                    new FriendProps("Voltra Tonlaveur", "/assets/img/png/av.png", "connected"),
-                    new FriendProps("Peter Parker", "/assets/img/png/anti-venom.png", "idle"),
-                    new FriendProps("Bruce Wayne", "/assets/img/png/av.png", "idle"),
-                    new FriendProps("Ben Reilly", "/assets/img/png/av.png", "idle"),
-                    new FriendProps("Cindy Moon", "/assets/img/png/av.png", "idle"),
+                    makeFriendProps("PINGAS", "/assets/img/png/av.png", "connected"),
+                    makeFriendProps("Random Pelo", "/assets/img/png/av.png", "disconnected"),
+                    makeFriendProps("Jean Denis", "/assets/img/png/av.png", "idle"),
+                    makeFriendProps("Voltra Tonlaveur", "/assets/img/png/av.png", "connected"),
+                    makeFriendProps("Peter Parker", "/assets/img/png/anti-venom.png", "idle"),
+                    makeFriendProps("Bruce Wayne", "/assets/img/png/av.png", "idle"),
+                    makeFriendProps("Ben Reilly", "/assets/img/png/av.png", "idle"),
+                    makeFriendProps("Cindy Moon", "/assets/img/png/av.png", "idle"),
                 ],
                 responsive
             };

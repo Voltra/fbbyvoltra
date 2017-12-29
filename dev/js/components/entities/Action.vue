@@ -1,5 +1,7 @@
 <script>
-    import ActionProps from "@js/props/ActionProps";
+    import {ActionProps} from "@js/props/ActionProps";
+    
+    import "@css/tooltip.scss"
 
     export default {
         props: {
@@ -19,10 +21,16 @@
             actionName(){ return this.actionProps.actionName },
             url(){ return this.actionProps.imgUrl },
             isCenter(){ return this.actionProps.isCenter },
+            tooltipData(){
+                return {
+                    content: `${this.actionName}`,
+                    placement: "top"
+                };
+            }
         },
         render(h){
             return (
-                <div class={this.classes}>
+                <div class={this.classes} v-tooltip={this.tooltipData}>
                     <img src={this.url} alt={this.actionName}/>
                 </div>
            );

@@ -1,4 +1,6 @@
-export default class ResponsiveProps{
+import {make, partial} from "@js/helpers/make"
+
+class ResponsiveProps{
     constructor(breakpoint, sizeSource, orientationSource){
         this.breakpoint = breakpoint;
         this.sizeSource = sizeSource;
@@ -19,3 +21,8 @@ export default class ResponsiveProps{
     }
     isDesktop(){ return !this.isMobile(); }
 };
+
+const makeResponsiveProps = partial(make, ResponsiveProps);
+
+
+export {ResponsiveProps, makeResponsiveProps};

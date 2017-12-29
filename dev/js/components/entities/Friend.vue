@@ -1,6 +1,6 @@
 <script>
-    import FriendProps from "@js/props/FriendProps"
-    import ResponsiveProps from "@js/props/ResponsiveProps"
+    import {FriendProps} from "@js/props/FriendProps"
+    import {ResponsiveProps} from "@js/props/ResponsiveProps"
 
     import "@css/tooltip.scss"
     
@@ -37,8 +37,12 @@
             status(){ return this.friend.status; },
 
             tooltipData(){
+                const classes = Object.keys(this.classes)
+                .filter(className => this.classes[className])
+                .join(" ");
+                
                 return {
-                    content: this.name,
+                    content: `${this.name}&nbsp;<i class="${classes}"></i>`,
                     placement: "left"
                 };
             }
@@ -57,7 +61,7 @@
         },
         render(h){
             return (
-                <li class={this.classes} title={this.name} v-tooltip={this.tooltipData}>
+                <li class={this.classes} v-tooltip={this.tooltipData}>
                     <div class="img-container">
                         <img src={this.ppUrl} alt={this.alt}/>
                     </div>
@@ -99,7 +103,8 @@
         
         & .name-container{
             flex: 4;
-            margin-left: $friendListPadding;
+            //margin-left: $friendListPadding;
+            padding: $friendListPadding;
 
             @include display-flex;
             @include flex-direction(column);
@@ -131,17 +136,17 @@
     
     li.friend.connected,
     li.friend.connected img{
-        @include color-bg(#11b449);
+        @include color-bg($connectedColor);
     }
     
     li.friend.idle,
     li.friend.idle img{
-        @include color-bg(#f6bc1e);
+        @include color-bg($idleColor);
     }
     
     li.friend.disconnected,
     li.friend.disconnected img{
-        @include color-bg(slategrey);
+        @include color-bg($disconnectedColor);
     }
     
     li.friend{

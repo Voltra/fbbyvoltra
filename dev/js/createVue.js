@@ -25,7 +25,7 @@ const createVue = (options, debug=false)=>{
             window.vue = x;
     });
     
-    
+    VTooltip.options.autoHide = false;
     Vue.config.devtools = debug;
     window.responsive = responsive;
 };
