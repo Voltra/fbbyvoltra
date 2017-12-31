@@ -4,13 +4,14 @@ import VTooltip from "v-tooltip"
 
 import merge from "lodash.merge"
 import responsive from "@js/helpers/responsive"
+import VResizeListener from "@js/directives/v-resize-listener"
 
 
 import "vue2-animate/dist/vue2-animate.min.css"
 
 const defaults = {
     el: "#app-container",
-    components: { App, VTooltip }
+    components: { App, VTooltip, VResizeListener }
 };
 
 

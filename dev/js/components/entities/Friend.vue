@@ -52,16 +52,9 @@
                 this.shouldDisplayName = this.responsive.isDesktop();
             }
         },
-        mounted(){
-            window.addEventListener("resize", this.handleResize);
-            this.handleResize();
-        },
-        beforeDestroy(){
-            window.removeEventListener("resize", this.handleResize);
-        },
         render(h){
             return (
-                <li class={this.classes} v-tooltip={this.tooltipData}>
+                <li class={this.classes} v-tooltip={this.tooltipData} v-resize-listener={this.handleResize}>
                     <div class="img-container">
                         <img src={this.ppUrl} alt={this.alt}/>
                     </div>
