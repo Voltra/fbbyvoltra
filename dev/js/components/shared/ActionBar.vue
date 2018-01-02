@@ -14,7 +14,7 @@
                 <div id="actionBar">
                     {
                         this.actions.map((action, index)=>(
-                            <Action key={index} action-props={action}/>
+                            <Action key={index} action={action}/>
                         ))
                     }
                 </div>

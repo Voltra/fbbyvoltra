@@ -1,6 +1,7 @@
 <script>
     import {FriendProps} from "@js/props/FriendProps"
     import {ResponsiveProps} from "@js/props/ResponsiveProps"
+    import ConnectionStatusProps from "@js/props/ConnectionStatusProps"
 
     import "@css/tooltip.scss"
     
@@ -25,9 +26,9 @@
             classes(){
                 return {
                     "friend": true,
-                    "connected": this.status === "connected",
-                    "idle": this.status === "idle",
-                    "disconnected": this.status === "disconnected",
+                    "connected": this.status === ConnectionStatusProps.CONNECTED,
+                    "idle": this.status === ConnectionStatusProps.IDLE,
+                    "disconnected": this.status === ConnectionStatusProps.DISCONNECTED,
                 }
             },
             

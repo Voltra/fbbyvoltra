@@ -7,7 +7,7 @@
             friends: {
                 type: Array,
                 required: true,
-                default: []
+                default: ()=>[]
             },
             responsive: {
                 required: true

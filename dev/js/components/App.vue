@@ -4,6 +4,7 @@
     
     import {makeActionProps} from "@js/props/ActionProps"
     import {makeFriendProps} from "@js/props/FriendProps"
+    import ConnectionStatusProps from "@js/props/ConnectionStatusProps"
     
     import responsive from "@js/helpers/responsive"
     
@@ -12,21 +13,21 @@
         data(){
             return {
                 actions: [
-                    makeActionProps("friend requests", "/assets/img/png/actionbar/off-friend.png", false),
-                    makeActionProps("search", "/assets/img/png/actionbar/off-search.png", false),
+                    makeActionProps("friend requests", "/assets/img/png/actionbar/off-friend.png"),
+                    makeActionProps("search", "/assets/img/png/actionbar/off-search.png"),
                     makeActionProps("post", "/assets/img/png/actionbar/post.png", true),
-                    makeActionProps("notifications", "/assets/img/png/actionbar/off-notif.png", false),
-                    makeActionProps("menu", "/assets/img/png/actionbar/off-menu.png", false),
+                    makeActionProps("notifications", "/assets/img/png/actionbar/off-notif.png"),
+                    makeActionProps("menu", "/assets/img/png/actionbar/off-menu.png"),
                 ],
                 friends: [
-                    makeFriendProps("PINGAS", "/assets/img/png/av.png", "connected"),
-                    makeFriendProps("Random Pelo", "/assets/img/png/av.png", "disconnected"),
-                    makeFriendProps("Jean Denis", "/assets/img/png/av.png", "idle"),
-                    makeFriendProps("Voltra Tonlaveur", "/assets/img/png/av.png", "connected"),
-                    makeFriendProps("Peter Parker", "/assets/img/png/anti-venom.png", "idle"),
-                    makeFriendProps("Bruce Wayne", "/assets/img/png/av.png", "idle"),
-                    makeFriendProps("Ben Reilly", "/assets/img/png/av.png", "idle"),
-                    makeFriendProps("Cindy Moon", "/assets/img/png/av.png", "idle"),
+                    makeFriendProps("PINGAS", "/assets/img/png/av.png", ConnectionStatusProps.CONNECTED),
+                    makeFriendProps("Random Pelo", "/assets/img/png/av.png", ConnectionStatusProps.DISCONNECTED),
+                    makeFriendProps("Jean Denis", "/assets/img/png/av.png", ConnectionStatusProps.IDLE),
+                    makeFriendProps("Voltra Tonlaveur", "/assets/img/png/av.png", ConnectionStatusProps.CONNECTED),
+                    makeFriendProps("Peter Parker", "/assets/img/png/anti-venom.png", ConnectionStatusProps.IDLE),
+                    makeFriendProps("Bruce Wayne", "/assets/img/png/av.png", ConnectionStatusProps.IDLE),
+                    makeFriendProps("Ben Reilly", "/assets/img/png/av.png", ConnectionStatusProps.IDLE),
+                    makeFriendProps("Cindy Moon", "/assets/img/png/av.png", ConnectionStatusProps.IDLE),
                 ],
                 responsive
             };

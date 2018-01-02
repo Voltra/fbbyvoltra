@@ -5,7 +5,7 @@
 
     export default {
         props: {
-            actionProps: {
+            action: {
                 type: ActionProps,
                 required: true
             }
@@ -18,9 +18,9 @@
                     "actionBar__centerAction": this.isCenter
                 }
             },
-            actionName(){ return this.actionProps.actionName },
-            url(){ return this.actionProps.imgUrl },
-            isCenter(){ return this.actionProps.isCenter },
+            actionName(){ return this.action.actionName },
+            url(){ return this.action.imgUrl },
+            isCenter(){ return this.action.isCenter },
             tooltipData(){
                 return {
                     content: `${this.actionName}`,
