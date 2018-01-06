@@ -15,7 +15,7 @@
         },
         data(){
             return {
-                noFriendMessage: "Sadly, there is no friend to display here"
+                noFriendMessage: "Sadly, there is no friend to display here. Maybe none of your friend is using this application, maybe you should tell them to do so ;) !"
             };
         },
         render(h){
@@ -57,7 +57,6 @@
     #friendList ul{
         display: block;
         width: 100%;
-        //@include min-height(100%);
         height: 100%;
         
         overflow: hidden;
@@ -75,9 +74,10 @@
     
     .no-friend{
         font-size: 1em;
-        word-break: break-all;
+        //word-break: break-all;
+        word-wrap: break-word;
         padding: $friendListPadding;
         
-        color: $text;
+        color: $color;
     }
 </style>

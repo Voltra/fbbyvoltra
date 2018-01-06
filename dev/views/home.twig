@@ -5,7 +5,7 @@
 
 {% block js %}
     {% if debug %}
-        <script src="/assets/js/{{ attribute(manifest, "home.js") }}"></script>
+        <script src="/assets/js/{{ attribute(manifest, 'home.js') }}"></script>
     {% else %}
         <script src="/assets/js/home.bundle.js"></script>
     {% endif %}
@@ -13,6 +13,6 @@
 
 {% block body %}
     <app>
-        <home></home>
+        <home slot="view"></home>
     </app>
 {% endblock %}

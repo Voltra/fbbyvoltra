@@ -31,7 +31,6 @@
         position: relative;
         width: $actionBarWidth;
         height: $actionBarHeight;
-        bottom: $actionBarHeight;
 
         @include display-flex;
         @include flex-direction(row);

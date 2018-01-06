@@ -120,6 +120,7 @@ config.module.rules.push({
 config.module.rules.push({
 	test: /\.vue$/,
 	loader: "vue-loader",
+    exclude: librariesRegex,
     options: {
 		loaders: {
 			css: `vue-style-loader${sassLoaders.map(e=>`!${e}`).join("")}`

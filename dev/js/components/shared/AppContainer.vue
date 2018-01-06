@@ -1,8 +1,10 @@
 <script>
     import FriendList from "@components/shared/FriendList"
+    import noSlot from "@js/helpers/noSlot"
     
+    const name = "app-container"
     export default {
-        name: "app-container",
+        name,
         props: {
             friends: {
                 type: Array,
@@ -14,9 +16,12 @@
             }
         },
         render(h){
+            if(!this.$slots.view)
+                noSlot("view", name, noSlot.EXCEPTION);
+            
             return (
                 <div id="container">
-                    {this.$slots.default}
+                    {this.$slots.view}
                     <transition appear name="fadeRight">
                         <FriendList friends={this.friends} responsive={this.responsive}/>
                     </transition>

@@ -1,19 +1,19 @@
 import {make, partial} from "@js/helpers/make"
+import {assertType, assertIsInt, assertPositive} from "@js/helpers/type-safety"
 
 class ActionProps{
-    constructor(name, imgUrl, isCenter=false){
-        if(typeof name != "string")
-            throw new TypeError("The name of an ActionProps must be a String");
-        
-        if(typeof imgUrl != "string")
-            throw new TypeError("The ActionProps's image's URL must be a String");
-        
-        if(typeof isCenter != "boolean")
-            throw new TypeError("The center property of an ActionProps must be a Boolean");
+    constructor(name, imgUrl, notifAmount=0, isCenter=false){
+        assertType(name, "string", "The name of an ActionProps must be a String");
+        assertType(imgUrl, "string", "The ActionProps's image's URL must be a String");
+        assertType(notifAmount, "number", "The amount of notifications of an ActionProps must be a Number");
+        assertIsInt(notifAmount, "The amount of notifications must be an Integer");
+        assertPositive(notifAmount, "The amount of notifications must be positive")
+        assertType(isCenter, "boolean", "The center property of an ActionProps must be a Boolean");
         
         this.actionName = name;
         this.imgUrl = imgUrl;
         this.isCenter = isCenter;
+        this.notifAmount = notifAmount;
     }
 };
 

@@ -11,16 +11,17 @@
         {% include "components/global-css.twig" %}
         {% block css %}
         {% endblock %}
-
-        {% include "components/global-imports.twig" %}
-        {% block js %}
-        {% endblock %}
     </head>
     <body>
         {% include "components/flash/flash.twig" %}
+        {% include "components/spinner-lord/spinner-lord.twig" %}
         <div id="app-container">
             {% block body %}
             {% endblock %}
         </div>
+        
+        {% include "components/global-imports.twig" %}
+        {% block js %}
+        {% endblock %}
     </body>
 </html>

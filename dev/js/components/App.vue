@@ -7,16 +7,19 @@
     import ConnectionStatusProps from "@js/props/ConnectionStatusProps"
     
     import responsive from "@js/helpers/responsive"
+    import noSlot from "@js/helpers/noSlot"
     
+    
+    const name = "app";
     export default {
-        name: "app",
+        name,
         data(){
             return {
                 actions: [
                     makeActionProps("friend requests", "/assets/img/png/actionbar/off-friend.png"),
                     makeActionProps("search", "/assets/img/png/actionbar/off-search.png"),
-                    makeActionProps("post", "/assets/img/png/actionbar/post.png", true),
-                    makeActionProps("notifications", "/assets/img/png/actionbar/off-notif.png"),
+                    makeActionProps("post", "/assets/img/png/actionbar/post.png", 0, true),
+                    makeActionProps("notifications", "/assets/img/png/actionbar/off-notif.png", 90),
                     makeActionProps("menu", "/assets/img/png/actionbar/off-menu.png"),
                 ],
                 friends: [
@@ -33,11 +36,14 @@
             };
         },
         render(h){
+            if(!this.$slots.view)
+                noSlot("view", name, noSlot.EXCEPTION);
+            
             return (
                 <div class="app-container">
                     <transition appear name="slideDown">
                         <AppContainer friends={this.friends} responsive={this.responsive}>
-                            {this.$slots.default}
+                            <template slot="view">{this.$slots.view}</template>
                         </AppContainer>
                     </transition>
                     <transition appear name="slideUp">

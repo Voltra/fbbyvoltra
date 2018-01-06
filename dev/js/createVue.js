@@ -8,10 +8,12 @@ import responsive from "@js/helpers/responsive"
 
 
 import "vue2-animate/dist/vue2-animate.min.css"
+import removeSpinnerLord from "spinner-lord"
 
 const defaults = {
     el: "#app-container",
-    components: { App, VTooltip, VResizeListener }
+    components: { App, VTooltip, VResizeListener },
+    mounted: removeSpinnerLord.bind(null, $)
 };
 
 

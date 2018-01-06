@@ -1,5 +1,6 @@
 <script>
-    import {ActionProps} from "@js/props/ActionProps";
+    import {ActionProps} from "@js/props/ActionProps"
+    import ActionBadge from "@components/entities/ActionBadge"
     
     import "@css/tooltip.scss"
 
@@ -18,9 +19,10 @@
                     "actionBar__centerAction": this.isCenter
                 }
             },
-            actionName(){ return this.action.actionName },
-            url(){ return this.action.imgUrl },
-            isCenter(){ return this.action.isCenter },
+            actionName(){ return this.action.actionName; },
+            url(){ return this.action.imgUrl; },
+            isCenter(){ return this.action.isCenter; },
+            notifAmount(){ return this.action.notifAmount; },
             tooltipData(){
                 return {
                     content: `${this.actionName}`,
@@ -32,6 +34,9 @@
             return (
                 <div class={this.classes} v-tooltip={this.tooltipData}>
                     <img src={this.url} alt={this.actionName}/>
+                    <transition name="zoom">
+                        <ActionBadge value={this.notifAmount}/>
+                    </transition>
                 </div>
            );
         }

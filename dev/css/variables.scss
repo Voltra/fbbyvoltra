@@ -1,35 +1,87 @@
+/**********************************************************************\
+    //
+\**********************************************************************/
+
+
+/**********************************************************************\
+    App Dimensions
+\**********************************************************************/
 $appHeight: 100vh;
 $appWidth: 100vw;
 
+
+/**********************************************************************\
+    Shared settings
+\**********************************************************************/
 $primary: #3b5998;
 $bg: #e9ebee;
-$text: #3c3f41;
+$color: #3c3f41;
+$alt-color: $bg;
 $transitionDuration: 0.3s;
+//
+$failureColor: #aa1717;
+$successColor: #0f9d50;
+$alertColor: $failureColor;
 
+
+
+/**********************************************************************\
+    Action bar
+\**********************************************************************/
 $actionBarHeight: 6 / 100 * $appHeight;
 $actionBarWidth: $appWidth;
 
+
+
+/**********************************************************************\
+    App container
+\**********************************************************************/
 $appContainerWidth: $appWidth;
 $appContainerHeight: $appHeight - $actionBarHeight;
 
+
+/**********************************************************************\
+    Friend list
+\**********************************************************************/
 $friendListWidth: 20 / 100 * $appWidth;
 $friendListHeight: $appContainerHeight;
 
-$contentWidth: $appWidth - $friendListWidth;
-$contentHeight: $appHeight;
 
+/**********************************************************************\
+    Content view
+\**********************************************************************/
+$contentWidth: $appWidth - $friendListWidth;
+$contentHeight: $friendListHeight;
+
+
+/**********************************************************************\
+    Friend list additionals
+\**********************************************************************/
 $friendListPaddingH: $friendListWidth * 5 / 100;
 $friendListPaddingV: $friendListHeight * 5 / 100;
 $friendListPadding: 5%;
+//
 $friendListHoverPaddingH: $friendListWidth * 8 / 100;
 $friendListHoverPaddingV: $friendListHeight * 8 / 100;
 $friendListHoverPadding: 8%;
-
+//
 $friendListItemHeight: 16 / 100 * $friendListHeight;
 $friendListItemWidth: $friendListWidth;
-
 $friendListItemImageDimension: 60 / 100 * $friendListItemHeight;
 
+
+/**********************************************************************\
+    Connection statuses
+\**********************************************************************/
 $connectedColor: #11b449;
 $idleColor: #f6bc1e;
 $disconnectedColor: slategrey;
+
+
+/**********************************************************************\
+    Badges
+\**********************************************************************/
+$badgeDimension: 1.8vw;
+$badgeDimensionMobile: 2vh;
+$badgeTop: 0.2vh;
+$badgeFontSize: calc(#{$badgeDimension} / 3 * 2);
